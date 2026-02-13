@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For The Love of My Life 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:white;
+  overflow:hidden;
+}
+
+/* floating hearts */
+.heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:18px;
+  animation:floatUp linear infinite;
+  opacity:.6;
+}
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-110vh);opacity:0}
+}
+
+/* GAME */
+#game{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+#game h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:28px;
+  margin-bottom:25px;
+  color:#d16ba5;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,75px);
+  gap:15px;
+}
+.card{
+  width:75px;
+  height:75px;
+  background:#ffd6e8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:32px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:.3s;
+}
+.card.flipped{
+  background:white;
+}
+
+/* PAGES */
+.page{
+  position:absolute;
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  transition:1s;
+}
+.hidden{
+  transform:translateX(100%);
+  opacity:0;
+}
+
+/* polaroid */
+.polaroid{
+  background:white;
+  padding:15px 15px 40px 15px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  border-radius:15px;
+  margin-bottom:25px;
+}
+.polaroid img{
+  width:260px;
+  border-radius:10px;
+}
+
+/* note bubble */
+.note{
+  max-width:700px;
+  background:#fff5f9;
+  padding:40px;
+  border-radius:35px;
+  font-family:'Great Vibes',cursive;
+  font-size:28px;
+  line-height:1.8;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+  animation:fadeIn 2s forwards;
+  opacity:0;
+}
+
+@keyframes fadeIn{to{opacity:1}}
+
+button{
+  margin-top:30px;
+  padding:12px 35px;
+  border:none;
+  border-radius:30px;
+  background:#ff9ecf;
+  color:white;
+  font-size:14px;
+  font-family:'Poppins',sans-serif;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- GAME -->
+<div id="game">
+  <h2>Match The Love 🤍</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- PAGE 1 -->
+<div class="page hidden" id="page1">
+  <div class="polaroid"><img src="foto1.jpg"></div>
+  <div class="note">
+    Hai kamu, orang yang selalu aku pilih.  
+    Bukan karena nggak ada pilihan lain,  
+    tapi karena memang kamu satu-satunya yang aku mau.  
+    Di antara semua kemungkinan di dunia ini,  
+    aku tetap memilih kamu.
+  </div>
+  <button onclick="nextPage()">Next 🤍</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page hidden" id="page2">
+  <div class="polaroid"><img src="foto2.jpg"></div>
+  <div class="note">
+    No orang lain. No orang ketiga.  
+    Cuma aku dan kamu yang saling jaga dan saling percaya.  
+    Walau dunia kadang lagi chaos,  
+    aku tetap ingin berdiri di samping kamu,  
+    bukan cuma saat semuanya mudah,  
+    tapi juga saat semuanya terasa berat.
+  </div>
+  <button onclick="nextPage()">Next 🤍</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page hidden" id="page3">
+  <div class="polaroid"><img src="foto3.jpg"></div>
+  <div class="note">
+    Hari ini aku mau jujur.  
+    Aku sadar aku masih banyak salah.  
+    Kadang aku egois, kadang keras kepala.  
+    Dan mungkin aku datang ke kamu  
+    dengan versi diriku yang masih belum sepenuhnya utuh.
+  </div>
+  <button onclick="nextPage()">Next 🤍</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page hidden" id="page4">
+  <div class="polaroid"><img src="foto4.jpg"></div>
+  <div class="note">
+    Maaf ya… karena kamu harus kenal sisi “broken” ku juga.  
+    Aku masih belajar sembuh dari trauma sebelum kamu.  
+    Kadang itu bikin aku overthink,  
+    kadang bikin aku takut kehilangan,  
+    dan kadang aku bingung menyelesaikan masalah kita dengan cara yang benar.
+  </div>
+  <button onclick="nextPage()">Next 🤍</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page hidden" id="page5">
+  <div class="polaroid"><img src="foto5.jpg"></div>
+  <div class="note">
+    Tapi satu hal yang pasti, aku tetap pilih kamu.  
+    Hari ini, besok, dan seterusnya.  
+    Sambil aku perbaiki diri pelan-pelan,  
+    supaya suatu hari nanti yang kamu pegang  
+    bukan lagi versi broken-ku,  
+    tapi versi terbaikku.  
+    <br><br>
+    🤍 Dari orang yang akan selalu belajar menjadi lebih baik untuk kamu.
+  </div>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgm" autoplay loop>
+  <source src="lagi.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* MUSIC FIX */
+window.addEventListener("load", function(){
+  const bgm=document.getElementById("bgm");
+  bgm.play().catch(()=>{
+    document.addEventListener("click",()=>bgm.play(),{once:true});
+  });
+});
+
+/* FLOATING HEARTS */
+function createHeart(){
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="🤍";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=(4+Math.random()*4)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+}
+setInterval(createHeart,700);
+
+/* MEMORY GAME */
+const emojis=["🤍","🤍","🐱","🐱","💌","💌","🌸","🌸"];
+let first=null,second=null,lock=false,match=0;
+
+emojis.sort(()=>0.5-Math.random());
+const grid=document.getElementById("grid");
+
+emojis.forEach(e=>{
+  const card=document.createElement("div");
+  card.className="card";
+  card.dataset.value=e;
+  card.innerHTML="❓";
+  card.onclick=()=>{
+    if(lock||card.classList.contains("flipped"))return;
+    card.innerHTML=e;
+    card.classList.add("flipped");
+    if(!first){first=card;}
+    else{
+      second=card;
+      lock=true;
+      if(first.dataset.value===second.dataset.value){
+        match++;
+        first=null;second=null;lock=false;
+        if(match===4){
+          document.getElementById("game").style.display="none";
+          document.getElementById("page1").classList.remove("hidden");
+        }
+      }else{
+        setTimeout(()=>{
+          first.innerHTML="❓";
+          second.innerHTML="❓";
+          first.classList.remove("flipped");
+          second.classList.remove("flipped");
+          first=null;second=null;lock=false;
+        },800);
+      }
+    }
+  };
+  grid.appendChild(card);
+});
+
+/* PAGE TRANSITION */
+let current=1;
+function nextPage(){
+  document.getElementById("page"+current).classList.add("hidden");
+  current++;
+  const next=document.getElementById("page"+current);
+  if(next){
+    next.classList.remove("hidden");
+  }
+}
+</script>
+
+</body>
+</html>
